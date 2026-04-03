@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Perupa Mono';
+  src: url('./assets/PerupaMono-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -12,7 +20,7 @@ html, body {
 }
 
 body {
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Perupa Mono', monospace;
   color: #1a1a1a;
   background-color: #E9C546;
   -webkit-font-smoothing: antialiased;

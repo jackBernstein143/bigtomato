@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 import logoSvg from './assets/logo.svg'
-import wordmark from './assets/wordmark.svg'
 import pizzaPlate from './assets/pizza-plate.png'
 import plateClean from './assets/plate-clean.png'
 import pizzaSlice from './assets/pizza-slice.png'
@@ -35,7 +34,7 @@ function App() {
       {/* TOP INFO */}
       <div className="top-info">
         <div className="top-row">
-          <img src={wordmark} alt="Big Tomato" className="wordmark" />
+          <span>Big Tomato</span>
           <span>Est. 2026</span>
         </div>
       </div>
