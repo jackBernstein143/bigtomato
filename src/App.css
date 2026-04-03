@@ -1,0 +1,202 @@
+/* ========== FULL PAGE LAYOUT ========== */
+.page {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5vh 8vw;
+  overflow: hidden;
+}
+
+/* ========== TOP INFO ========== */
+.top-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.wordmark {
+  height: clamp(28px, 5vw, 56px);
+  width: auto;
+}
+
+.top-row span {
+  font-size: clamp(18px, 3vw, 36px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* ========== CENTER LOGO ========== */
+.center-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 5vw, 60px);
+  flex: 1;
+}
+
+.logo-word {
+  font-size: clamp(40px, 8vw, 110px);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  line-height: 1;
+}
+
+.logo-icon {
+  width: clamp(250px, 40vw, 500px);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ========== BOTTOM NAV ========== */
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-col.right {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.nav-col.left {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.nav-item {
+  font-size: clamp(18px, 3vw, 36px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  background: none;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.nav-item:hover {
+  opacity: 0.6;
+}
+
+/* ========== PIZZA PLATE OVERLAY ========== */
+.plate-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: fadeIn 0.3s ease;
+  overflow: hidden;
+}
+
+.plate-container {
+  position: relative;
+  width: 75vmin;
+  height: 75vmin;
+  animation: spinIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Pizza slice — top layer above everything */
+.slice-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 95%;
+  height: 95%;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(4px 6px 8px rgba(0, 0, 0, 0.35));
+  transition: transform 1.4s cubic-bezier(0.32, 0, 0.67, 0.03);
+  z-index: 2;
+}
+
+.slice-image.slid {
+  transform: translate(-50%, 250%);
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spinIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3) rotate(-45deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  .page {
+    padding: 4vh 6vw;
+  }
+
+  .top-row span {
+    letter-spacing: 1px;
+  }
+
+  .logo-word {
+    letter-spacing: 2px;
+  }
+
+  .nav-item {
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-height: 500px) {
+  .page {
+    padding: 2vh 6vw;
+  }
+
+  .top-info {
+    gap: 4px;
+  }
+
+  .bottom-nav .nav-col {
+    gap: 4px;
+  }
+}
