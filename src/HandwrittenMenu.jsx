@@ -83,6 +83,10 @@ export default function HandwrittenMenu({ trigger, items }) {
     // Start tracking the sharpie position
     rafRef.current = requestAnimationFrame(trackSharpie)
 
+    const isMobile = window.innerWidth <= 600
+    const fontSize = isMobile ? 14 : 20
+    const strokeWidth = isMobile ? 1.2 : 1.8
+
     // Stagger each item's Vara animation
     const timeouts = items.map((item, i) => {
       return setTimeout(() => {
@@ -96,16 +100,16 @@ export default function HandwrittenMenu({ trigger, items }) {
           [
             {
               text: item,
-              fontSize: 20,
-              strokeWidth: 1.8,
+              fontSize,
+              strokeWidth,
               color: '#1a1a1a',
               duration: 2000,
-              letterSpacing: 2,
+              letterSpacing: 1,
             },
           ],
           {
-            fontSize: 20,
-            strokeWidth: 1.8,
+            fontSize,
+            strokeWidth,
             color: '#1a1a1a',
           }
         )

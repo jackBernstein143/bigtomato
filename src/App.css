@@ -253,6 +253,11 @@
   .nav-item {
     letter-spacing: 1px;
   }
+
+  .plate-container {
+    width: 92vw;
+    height: 92vw;
+  }
 }
 
 @media (max-height: 500px) {
