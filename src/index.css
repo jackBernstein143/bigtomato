@@ -20,6 +20,7 @@ html, body {
 }
 
 body {
+  cursor: url('/cursor-pizza.png') 32 32, auto;
   font-family: 'Perupa Mono', monospace;
   color: #1a1a1a;
   background-color: #E9C546;
