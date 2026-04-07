@@ -9,6 +9,16 @@ import orderslipPng from './assets/orderslip.png'
 import EraserReveal from './EraserReveal'
 import dylelipng from './assets/dyleli.png'
 
+// Preload all images so animations are smooth on first run
+function usePreloadAssets(srcs) {
+  useEffect(() => {
+    srcs.forEach((src) => {
+      const img = new Image()
+      img.src = src
+    })
+  }, [])
+}
+
 function Typewriter({ text }) {
   const [displayed, setDisplayed] = useState('')
 
@@ -47,6 +57,8 @@ function App() {
   const [eraseTriggered, setEraseTriggered] = useState(false)
   const [menuRevealed, setMenuRevealed] = useState(false)
   const [overlayKey, setOverlayKey] = useState(0)
+
+  usePreloadAssets([pizzaPlate, plateClean, pizzaSlice, phonePng, orderslipPng, dylelipng, logoSvg])
 
   const anyOpen = menuOpen || popupsOpen || contactOpen || bookingOpen
 
