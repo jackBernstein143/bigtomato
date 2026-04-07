@@ -1,7 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react'
 import gsap from 'gsap'
 
-export default function EraserReveal({ topSrc, bottomSrc, trigger }) {
+export default function EraserReveal({ topSrc, bottomSrc, trigger, children }) {
   const canvasRef = useRef(null)
   const containerRef = useRef(null)
   const imageRef = useRef(null)
@@ -129,8 +129,13 @@ export default function EraserReveal({ topSrc, bottomSrc, trigger }) {
           width: '100%',
           height: '100%',
           objectFit: 'contain',
+          zIndex: 0,
         }}
       />
+      {/* Content sandwiched between clean plate and dirty plate */}
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
+        {children}
+      </div>
       {/* Canvas with dirty plate drawn on it — gets erased */}
       <canvas
         ref={canvasRef}
@@ -139,6 +144,7 @@ export default function EraserReveal({ topSrc, bottomSrc, trigger }) {
           top: 0, left: 0,
           width: '100%',
           height: '100%',
+          zIndex: 2,
         }}
       />
     </div>

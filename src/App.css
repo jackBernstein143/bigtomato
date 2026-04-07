@@ -24,7 +24,7 @@
 }
 
 .top-row span {
-  font-size: clamp(24px, 4vw, 48px);
+  font-size: clamp(28px, 5vw, 60px);
   text-transform: uppercase;
   letter-spacing: 2px;
   text-decoration: underline;
@@ -48,8 +48,21 @@
   line-height: 1;
 }
 
+.logo-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bottom-nav {
+  position: relative;
+  z-index: 600;
+}
+
+.est-mobile { display: none; }
+.est-desktop { display: inline; }
+
 .logo-icon {
-  width: clamp(250px, 40vw, 500px);
+  width: clamp(320px, 55vw, 650px);
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -85,7 +98,7 @@
 }
 
 .nav-item {
-  font-size: clamp(24px, 4vw, 48px);
+  font-size: clamp(28px, 5vw, 60px);
   text-transform: uppercase;
   letter-spacing: 2px;
   text-decoration: underline;
@@ -116,9 +129,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   animation: fadeIn 0.3s ease;
   overflow: hidden;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.plate-overlay .plate-container {
+  pointer-events: auto;
+  cursor: default;
 }
 
 .plate-container {
@@ -168,6 +187,31 @@
   }
 }
 
+/* ========== PLATE MENU ========== */
+.plate-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.plate-menu.visible {
+  opacity: 1;
+}
+
+.plate-menu span {
+  font-size: clamp(14px, 2.5vmin, 22px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 /* ========== CONTACT OVERLAY ========== */
 .contact-overlay {
   position: fixed;
@@ -180,8 +224,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   animation: fadeIn 0.3s ease;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.contact-overlay .contact-container {
+  pointer-events: auto;
+  cursor: default;
 }
 
 .contact-container {
@@ -222,6 +272,35 @@
   opacity: 0.7;
 }
 
+.dyleli-img {
+  width: clamp(260px, 50vmin, 500px);
+  height: auto;
+  filter: drop-shadow(4px 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.popups-container {
+  gap: 24px;
+}
+
+.typewriter-text {
+  font-size: clamp(20px, 3.5vw, 36px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  text-align: center;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  animation: blink 0.7s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .booking-slip {
   width: clamp(300px, 50vmin, 550px);
   height: auto;
@@ -241,6 +320,9 @@
   .page {
     padding: 4vh 6vw;
   }
+
+  .est-desktop { display: none; }
+  .est-mobile { display: inline; }
 
   .top-row span {
     letter-spacing: 1px;
